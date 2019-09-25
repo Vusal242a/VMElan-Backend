@@ -1,0 +1,31 @@
+﻿@model Final.Models.Entity.HomeProperty
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Ad1000/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>Property Details</h2>
+
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            <a class="btn btn-success" style="margin:5px;" href="@Url.Action("Edit","HomeProperties" , new { id = Model.Id })"> Edit</a>
+            <a class="btn btn-primary" style="margin:5px;" href="@Url.Action("Index","HomeProperties")"> Back to Home Property</a>
+        </p>
+
+    </div>
+</div>

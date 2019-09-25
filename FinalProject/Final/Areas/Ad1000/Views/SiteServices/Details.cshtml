@@ -1,0 +1,46 @@
+﻿@model Final.Models.Entity.SiteServices
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Ad1000/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>Site Service Details</h2>
+
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.LogoClass)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LogoClass)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            <a class="btn btn-success" style="margin:5px;" href="@Url.Action("Edit","SiteServices" , new { id = Model.Id })"> Edit</a>
+            <a class="btn btn-primary" style="margin:5px;" href="@Url.Action("Index","SiteServices")"> Back to Site Services</a>
+        </p>
+
+    </div>
+</div>

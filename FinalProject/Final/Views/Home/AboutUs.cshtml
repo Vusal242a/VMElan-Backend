@@ -1,0 +1,88 @@
+﻿@model Final.Models.Entity.SiteInfo
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section script{
+    <script src="~/Template/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    <script src="~/Template/js/owljs.js"></script>
+}
+
+<section class="about-us">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div class="about-us-img">
+                    <img src="@(string.IsNullOrWhiteSpace(Model.Image)?"":Href("~/Template/Media/"+Model.Image))">
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-xl-flex about-us-text">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 mt-5">
+                    <h5>ABOUT US</h5>
+                    <p>
+                       @Model.AboutUsText
+                    </p>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 mt-5">
+                    <h5>OUR QUALITY</h5>
+                    <p>
+                        @Model.OurQualityText
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="review">
+    <div class="container">
+        <div class="owl-carousel owl-theme">
+            <div class="item">
+                <div class="review-rating">
+                    <h5>Great Job</h5>
+                    <p>
+                        “Leramiz was quick to understand my needs and steer me in the right direction.
+                        Their professionalism and warmth made the process of finding a suitable
+                        home a lot less stressful than it could have been. Thanks, agent Tony Holland.”
+                    </p>
+                    <img class="review-img" src="~/Template/img/review/1.jpg">
+                    <h5>Stacy Mc Neeley</h5>
+                    <span>CEP’s Director</span>
+                </div>
+            </div>
+            <div class="item">
+                <div class="review-rating">
+                    <h5>Great Job</h5>
+                    <p>
+                        “Leramiz was quick to understand my needs and steer me in the right direction.
+                        Their professionalism and warmth made the process of finding a suitable
+                        home a lot less stressful than it could have been. Thanks, agent Tony Holland.”
+                    </p>
+                    <img class="review-img" src="~/Template/img/review/1.jpg">
+                    <h5>Stacy Mc Neeley</h5>
+                    <span>CEP’s Director</span>
+                </div>
+            </div>
+            <div class="item">
+                <div class="review-rating">
+                    <h5>Great Job</h5>
+                    <p>
+                        “Leramiz was quick to understand my needs and steer me in the right direction.
+                        Their professionalism and warmth made the process of finding a suitable
+                        home a lot less stressful than it could have been. Thanks, agent Tony Holland.”
+                    </p>
+                    <img class="review-img" src="~/Template/img/review/1.jpg">
+                    <h5>Stacy Mc Neeley</h5>
+                    <span>CEP’s Director</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="our-agents">
+    <div class="container">
+        <h5>OUR QUALITY</h5>
+        <p>Our directory of real estate agents who can help you</p>
+        <div class="row">
+            @Html.Action("AboutUsAgent", "Main")
+        </div>
+    </div>
+</section>

@@ -1,0 +1,239 @@
+﻿@model Final.Models.Entity.HomeInfo
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Ad1000/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>Edit Home</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="form-group" id="image-container">
+                    <label class="form-control image-container">
+                        <img src="@(string.IsNullOrWhiteSpace(Model.BackgroundImage)?"":Href("~/Template/Media/"+Model.BackgroundImage))" id="news-image" />
+                        <i class="empty-icon"></i>
+                        <a href="javascript:removePhoto()"><i class="clear-icon header-right-button"></i></a>
+                        @Html.EditorFor(model => model.BackgroundImage,
+                                                                     new { htmlAttributes = new { @class = "form-control", type = "file", style = "display:none", accept = "image/*", onchange = "readURL(this)", id = "mediaUrl" } })
+                    </label>
+                    @Html.ValidationMessageFor(model => model.BackgroundImage, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Square, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Square, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Square, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Garage, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Garage, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Garage, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Bathroom, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Bathroom, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Bathroom, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Bedroom, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Bedroom, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Bedroom, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CategoryId, "CategoryId", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SaleTypeId, "SaleTypeId", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("SaleTypeId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.SaleTypeId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AgentsId, "AgentsId", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("AgentsId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.AgentsId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CityId, "CityId", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("CityId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CityId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" style="background-color:#00c292; color:white;" value="Save" class="btn" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div>
+            <a class="btn btn-primary" style="margin:5px;" href="@Url.Action("Index","HomeInfoes")"> Back to Home Infoes</a>
+        </div>
+
+    </div>
+</div>
+@section VMScript{
+    <script>
+        $(function () {
+            $('.validation-summary-errors').each(function () {
+                $(this).addClass('alert');
+                $(this).addClass('alert-danger');
+            });
+            $('form').each(function () {
+                $(this).find('div.form-group').each(function () {
+                    if ($(this).find('span.field-validation-error').length > 0) {
+                        $(this).addClass('has-error');
+                        $(this).find('span.field-validation-error').
+                            removeClass('field-validation-error');
+                    }
+                });
+            });
+        });
+        var readURL = function (input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#news-image').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        var removePhoto = function () {
+            document.getElementById('mediaUrl').value = '';
+            document.getElementById('news-image').src = '';
+        }
+    </script>
+}
+@section VMStyle{
+    <style>
+        #image-container {
+            display: flex !important;
+            justify-content: center !important;
+        }
+
+        image-chooser-style
+        #news-image {
+            min-width: 100%;
+            min-height: 100%;
+            cursor: pointer;
+            width: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            object-fit: cover;
+        }
+
+        .image-container {
+            position: relative;
+            height: unset;
+            border-color: transparent;
+            width: 300px;
+            height: 300px;
+        }
+
+            .image-container img {
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        img[src=""] + i.empty-icon:after {
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: absolute;
+            cursor: pointer;
+            content: "\f030";
+            font-size: 42pt;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        img + i + a > i.clear-icon:after {
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            content: "\f00d";
+            font-size: 12pt;
+        }
+
+        i.header-right-button {
+            right: 24px;
+            top: 14px;
+            position: absolute;
+            cursor: pointer;
+        }
+
+        img[src=""] + i + a > i.clear-icon::after {
+            display: none;
+        }
+    </style>
+}

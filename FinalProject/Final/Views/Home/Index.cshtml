@@ -1,0 +1,282 @@
+﻿@model IEnumerable<Final.Models.Entity.HomeInfo>
+@{
+    Layout = null;
+    var db = new Final.Models.VMElanDbContext();
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Template/css/style.css">
+    <link rel="stylesheet" href="~/Template/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="~/Template/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://kit.fontawesome.com/678d81278a.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="~/Template/img/favicon (1).ico" type="image/x-icon" />
+
+</head>
+
+<body>
+        <section class="main-container">
+            <header>
+                <!-- class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"> -->
+                <div class="container">
+                    <div class="row d-flex justify-content-around align-items-center head-top">
+                        @Html.Action("TopNav", "Main")
+                    </div>
+                    <nav class="navbar navbar-expand-sm d-flex justify-content-between sticky-top">
+                        <a href="#" class="logo-vm"><img src="~/Template/img/logoVM.png"></a>
+                        <div class="nav-switch">
+                            <i class="fas fa-bars"></i>
+                        </div>
+                        <div class="nav-top d-flex justify-content-end">
+                            <ul class="nav-ul navbar-nav sibling-fade d-flex justify-content-end">
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index","Home")" class="nav-link">Home Page</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("FeaturedListing","Home")" class="nav-link">Featured Listing</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("AboutUs","Home")" class="nav-link">About Us</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("ContactUs","Home")" class="nav-link">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <div class="row d-flex justify-content-center">
+                        <div class="header-middle">
+                            <h2>find your place with our local life style</h2>
+                            <p>
+                                Search real estate property records, houses, condos, land and more on leramiz.com®.
+                                <br>Find property info from the most comprehensive source data.
+                            </p>
+                            <a href="@Url.Action("FeaturedListing","Home")" class="btn">VIEW DETAIL</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </section>
+
+        <section class="searcher">
+            <div class="container">
+                <form action="@Url.Action("searchInFeaturedListing","Home")" method="post">
+                    <div class="col-12 d-flex justify-content-around searcher-info">
+                        <input type="text" name="searchText" placeholder="Enter a street name, address number or keyword">
+                        <select name="CategoryId">
+                            <option value="">-Categories-</option>
+                            @Html.Action("CategorySearchOption", "Home")
+                        </select>
+                        <select name="CityId">
+                            <option value="">-City-</option>
+                            @Html.Action("CitySearchOption", "Home")
+                        </select>
+                        <button type="submit" style="border: none;color: white;min-width: 100px;background-color:black;" href="#">SEARCH</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="recent-proporties">
+            <div class="container">
+                <h3>RECENT PROPERTIES</h3>
+                <p>Discover how much the latest properties have been sold for</p>
+                <div class="row">
+                    @Html.Action("RecentProperties", "Home")
+                </div>
+            </div>
+        </section>
+
+        <section class="our-services">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
+                        <img src="~/Template/img/service.jpg">
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
+                        <div class="service-title"></div>
+                        <div class="services">
+                            <div class="section-title text-white">
+                                <h3>OUR SERVICES</h3>
+                                <p>We provide the perfect service for </p>
+                            </div>
+                            @Html.Action("Services", "Home")
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h3>Featured Listings</h3>
+                    <p>Browse houses and flats for sale and to rent in your area</p>
+                </div>
+                <div class="row">
+                    @Html.Action("FeaturedListingIndex", "Home")
+                </div>
+            </div>
+        </section>
+
+        <section class="looking-property">
+            <div class="container">
+                <div class="col-12 looking-property-top">
+                    <h3>LOOKING PROPERTY</h3>
+                    <p>What kind of property are you looking for? We will help you</p>
+                </div>
+                <div class="row">
+                    @Html.Action("LookingProperty", "Home")
+                </div>
+            </div>
+        </section>
+
+        <section class="popular-places">
+            <div class="container">
+                <div class="popular-places-top">
+                    <h3>Popular Places</h3>
+                    <p>We understand the value and importance of place</p>
+                </div>
+                <div class="row">
+                    @Html.Action("PopularPlaces", "Home")
+                </div>
+            </div>
+        </section>
+
+        <section class="review">
+            <div class="container">
+                <div class="owl-carousel owl-theme">
+                    <div class="item">
+                        <div class="review-rating">
+                            <h5>Great Job</h5>
+                            <p>
+                                “Leramiz was quick to understand my needs and steer me in the right direction.
+                                Their professionalism and warmth made the process of finding a suitable
+                                home a lot less stressful than it could have been. Thanks, agent Tony Holland.”
+                            </p>
+                            <img class="review-img" src="~/Template/img/review/1.jpg">
+                            <h5>Stacy Mc Neeley</h5>
+                            <span>CEP’s Director</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="review-rating">
+                            <h5>Great Job</h5>
+                            <p>
+                                “Leramiz was quick to understand my needs and steer me in the right direction.
+                                Their professionalism and warmth made the process of finding a suitable
+                                home a lot less stressful than it could have been. Thanks, agent Tony Holland.”
+                            </p>
+                            <img class="review-img" src="~/Template/img/review/1.jpg">
+                            <h5>Stacy Mc Neeley</h5>
+                            <span>CEP’s Director</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="review-rating">
+                            <h5>Great Job</h5>
+                            <p>
+                                “Leramiz was quick to understand my needs and steer me in the right direction.
+                                Their professionalism and warmth made the process of finding a suitable
+                                home a lot less stressful than it could have been. Thanks, agent Tony Holland.”
+                            </p>
+                            <img class="review-img" src="~/Template/img/review/1.jpg">
+                            <h5>Stacy Mc Neeley</h5>
+                            <span>CEP’s Director</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="partners">
+            <div class="container">
+                <div class="partners-owl d-flex owl-carousel owl-loaded owl-drag">
+                    <div class="item">
+                        <a><img src="~/Template/img/partner/1.png"></a>
+                    </div>
+                    <div class="item">
+                        <a><img src="~/Template/img/partner/2.png"></a>
+                    </div>
+                    <div class="item">
+                        <a><img src="~/Template/img/partner/3.png"></a>
+                    </div>
+                    <div class="item">
+                        <a><img src="~/Template/img/partner/4.png"></a>
+                    </div>
+                    <div class="item">
+                        <a><img src="~/Template/img/partner/5.png"></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer font-small mdb-color pt-4" style="background-image: url(../../Template/img/footer-bg.jpg)">
+            <div class="container">
+                <div class="row">
+                    @Html.Action("FooterInfo", "Main")
+                    <div class="popular-ft col-lg-3 col-md-6 mt-5">
+                        <h5 class="fw-title">POPULAR PLACES</h5>
+                        @Html.Action("FooterCity", "Main")
+                    </div>
+                    <div class="col-lg-3 col-md-6 mt-5">
+                        <div class="news-ft">
+                            <h5 class="fw-title">NEWSLETTER</h5>
+                            <p>Subscribe your email to get the latest news and new offer also discount</p>
+                            <form class="news-ft-form">
+                                <input type="text" placeholder="Email address">
+                                <button><i class="fas fa-paper-plane"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="bottom-ft col-12 col-lg-12 col-md-12 co-sm-12 col-xl-12 justify-content-between mt-5">
+                        <div class="row mt-5">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                <div class="copyright">
+                                    <p>
+                                        <a>
+                                            2019 All rights reserved <i class="fa fa-heart-o" aria-hidden="true"></i>Vusal
+                                            Mahmudlu
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                <div class="nav-ft">
+                                    <ul class="nav-ft-ul">
+                                        <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                                        <li><a href="@Url.Action("FeaturedListing","Home")">Featured Listing</a></li>
+                                        <li><a href="@Url.Action("AboutUs","Home")">About us</a></li>
+                                        <li><a href="@Url.Action("ContactUs","Home")">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="~/Template/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    <script src="~/Template/js/owljs.js"></script>
+    <script src="~/Template/js/main.js"></script>
+
+
+</body>
+
+</html>

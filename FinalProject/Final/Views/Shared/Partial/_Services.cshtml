@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Final.Models.Entity.SiteServices>
+
+
+@foreach (var item in Model)
+{
+    <div class="d-flex service">
+        <i class="@item.LogoClass"></i>
+        <div class="service-text">
+            <h5>@item.Name</h5>
+            <p>
+                @item.Description
+            </p>
+        </div>
+    </div>
+}

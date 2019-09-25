@@ -1,0 +1,42 @@
+﻿@model Final.Models.Entity.City
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Ad1000/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <h3>Are you sure you want to delete this City?</h3>
+        <div>
+            <h4>City</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    <img src="@(string.IsNullOrWhiteSpace(Model.Image)?"":Href("~/Template/Media/"+Model.Image))" style="width:400px;height:300px" id="news-image" />
+                </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+            </dl>
+
+            @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete City" class="btn" style="margin:5px !important; padding:0 !important; background-color:#9a0007; color:white;" />
+                </div>
+                <a class="btn btn-primary" style="margin-top:5px;" href="@Url.Action("Index","Cities")"> Back to Cities</a>
+            </div>
+    }
+        </div>
+    </div>
+</div>
+
+

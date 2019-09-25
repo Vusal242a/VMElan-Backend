@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Final.Models.Entity.SaleType>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Ad1000/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <h2>Sale Types</h2>
+
+        <a class="btn btn-info" style="margin:5px;" href="@Url.Action("Create","SaleTypes")"> Add Sale Type</a>
+        <table class="table table-hover">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <a class="btn btn-success" href="@Url.Action("Edit","SaleTypes",  new { id = item.Id })"> <i class="fas fa-pen"></i></a> 
+                        <a class="btn btn-info" href="@Url.Action("Details","SaleTypes",  new { id = item.Id })"> <i class="fas fa-info-circle"></i></a> 
+                        <a class="btn btn-danger" href="@Url.Action("Delete","SaleTypes",  new { id = item.Id })"> <i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+
+
+

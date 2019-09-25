@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Final.Models.Entity.HomeInfo>
+<div class="popular-ft-bottom d-flex justify-content-between">
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li><a href="@Url.Action("FeaturedListing","Home",routeValues:new {cityID=item.CityId })">@item.City.Name</a></li>
+        }
+    </ul>
+</div>

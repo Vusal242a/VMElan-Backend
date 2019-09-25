@@ -1,0 +1,141 @@
+﻿@model Final.Models.Entity.HomeInfo
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section script{
+    <script src="~/Template/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    <script src="~/Template/js/owljs.js"></script>
+}
+
+
+<section class="single-listing">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-xl-8">
+                @Html.Action("SingleListOwl", "Main")
+                <div class="single-listing-info">
+                    <div class="row single-listing-info-title">
+                        <div class="col-lg-12 col-xl-4">
+                            <h2>@Model.Name</h2>
+                            <p>
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>@Model.City.Name
+                            </p>
+                        </div>
+                        <div class="col-lg-12 col-xl-4">
+                            <a class="single-listing-price">$@Model.Price</a>
+                        </div>
+                    </div>
+                    <h3>Property Details</h3>
+                    <div class="row single-listing-property">
+                        <div class="col-md-4 col-sm-6">
+                            <p><i class="fa fa-th-large"></i>@Model.Square Square foot</p>
+                            <p><i class="fa fa-bed"></i> @Model.Bedroom Bedrooms</p>
+                            <p><i class="fa fa-user"></i> @Model.Agents.Name</p>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <p><i class="fa fa-car"></i>@Model.Garage Garages</p>
+                            <p><i class="fas fa-building"></i> @Model.Category.Name</p>
+                            <p><i class="far fa-clock"></i> 1 days ago</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p><i class="fa fa-bath"></i> @Model.Bathroom Bathrooms</p>
+                            <p><i class="fa fa-trophy"></i> 5 years age</p>
+                        </div>
+                    </div>
+                    <h3>Description</h3>
+                    <div class="row single-listing-description">
+                        <p>
+                            @Model.Description
+                        </p>
+                    </div>
+                    <h3>Property Details</h3>
+                    <div class="row single-listing-property">
+                        <div class="col-12 d-flex flex-wrap">
+                            @Html.Action("HomePropertyTag", "Main",routeValues:new {id=Model.Id })
+                        </div>
+                    </div>
+                    <h3>Floorplans</h3>
+                    <div id="accordion">
+                        @Html.Action("AccardionSingle", "Main", routeValues: new { id = Model.Id })
+
+                        @*<div class="card card-first">
+                            <div class="card-header accordion-two">
+                                <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+                                    Second Floor: <span>660 sq ft</span>
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+                            </div>
+                            <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+                                    <img src="~/Template/img/plan/plan-sketch.jpg">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header accordion-three">
+                                <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+                                    Third Floor:<span>660 sq ft</span>
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+                            </div>
+                            <div id="collapseThree" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+                                    <img src="~/Template/img/plan/plan-sketch.jpg">
+                                </div>
+                            </div>
+                        </div>*@
+
+                    </div>
+                    <h3>Location</h3>
+                    <section class="google-map">
+                        <div class="container">
+                            <div class="row">
+                                <div style="width: 100%">
+                                    <iframe width="100%" height="350px"
+                                            src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;coord=40.377340, 49.854583&amp;q=Baki%20Azerbaijan+(VMElanlar.az)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
+                                            frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                                        <a href="https://www.maps.ie/map-my-route/">Draw map route</a>
+                                    </iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="col-lg-12 col-xl-4">
+                <div class="author-home">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12  d-flex justify-content-between">
+                        <div class="author-home-img">
+                            <img src="@(string.IsNullOrWhiteSpace(Model.Agents.Image) ? "" : Href("~/Template/Media/" + Model.Agents.Image))" id="photo">
+                        </div>
+                        <div class="author-home-info">
+                            <h5>@Model.Agents.Name</h5>
+                            <p>@Model.Agents.Vacation</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12  d-flex justify-content-between">
+                        <div class="author-home-contact">
+                            <p><i class="fa fa-phone"></i>@Model.Agents.Phone</p>
+                            <p><i class="fa fa-envelope"></i>@Model.Agents.Email</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="single-email">
+                    <h5>Do you have any question?</h5>
+                    <form>
+                        <input type="text" placeholder="Your name">
+                        <input type="text" placeholder="Your email">
+                        <textarea placeholder="Your question"></textarea>
+                        <button>SEND</button>
+                    </form>
+                </div>
+                <div class="related-property">
+                    <div class="row">
+                        @Html.Action("RelatedPropertySingle", "Main")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

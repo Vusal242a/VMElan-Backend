@@ -1,0 +1,135 @@
+﻿@model Final.Models.Entity.HomeInfo
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Ad1000/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <h2>Home Details</h2>
+
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Agents.Name)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Agents.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.City.Name)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.City.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Category.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Category.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.SaleType.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SaleType.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Price)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Square)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Square)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Garage)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Garage)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Bathroom)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Bathroom)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Bedroom)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Bedroom)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+                @*<dt>
+            Home Photos
+        </dt>
+        <dd>
+            @foreach (var img in ViewBag.HomeImage)
+            {
+                if (img.Id == img.HomeInfoId)
+                {
+                    <img src="@(string.IsNullOrWhiteSpace(img.Photo)?"":Href("~/Template/Media/"+img.Photo))" style="width:100px;height:100px" id="news-image" />
+                }
+            }
+        </dd>
+        <dt>
+            Plan Photos
+        </dt>
+        <dd>
+            @foreach (var img in ViewBag.PlanImage)
+            {
+                if (item.Id == img.HomeInfoId)
+                {
+                    <img src="@(string.IsNullOrWhiteSpace(img.Photo)?"":Href("~/Template/Media/"+img.Photo))" style="width:100px;height:100px" id="news-image" />
+                }
+            }
+        </dd>*@
+
+
+            </dl>
+        </div>
+        <p>
+            <a class="btn btn-success" style="margin:5px;" href="@Url.Action("Edit","HomeInfoes" , new { id = Model.Id })"> Edit</a>
+            <a class="btn btn-primary" style="margin:5px;" href="@Url.Action("Index","HomeInfoes")"> Back to Home Infoes</a>
+        </p>
+
+    </div>
+</div>

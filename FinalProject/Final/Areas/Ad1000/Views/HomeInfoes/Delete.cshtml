@@ -1,0 +1,115 @@
+﻿@model Final.Models.Entity.HomeInfo
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Ad1000/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <h3>Are you sure you want to delete this Home?</h3>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Agents.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Agents.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.City.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.City.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Category.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Category.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.SaleType.Id)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SaleType.Id)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Price)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Square)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Square)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Garage)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Garage)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Bathroom)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Bathroom)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Bedroom)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Bedroom)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete Info" class="btn" style="margin:5px !important; padding:0 !important; background-color:#9a0007; color:white;" />
+                </div>
+                <a class="btn btn-primary" style="margin-top:5px;" href="@Url.Action("Index","HomeInfoes")"> Back to Home Infoes</a>
+            }
+        </div>
+
+    </div>
+</div>

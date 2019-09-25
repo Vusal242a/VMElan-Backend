@@ -1,0 +1,54 @@
+﻿@model Final.Models.Entity.SiteInfo
+
+
+<div class="col-lg-6 d-none col-xl-6 d-lg-flex flex-row pt-2 contact">
+    <div class="col-6 d-flex justify-content-end">
+        <ul>
+            <li>
+                <p>
+                    <i class="fas fa-phone-alt"></i><a href="tel:@Model.Phone">@Model.Phone</a>
+                </p>
+            </li>
+        </ul>
+    </div>
+    <div class="col-6 d-flex justify-content-start">
+        <ul>
+            <li>
+                <p>
+                    <i class="fas fa-envelope"></i> <a href="mailto:@Model.Email">@Model.Email</a>
+                </p>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 d-flex flex-row justify-content-center social">
+    <div class="social-pages">
+        <ul class="d-flex flex-row justify-content-center">
+            <li>
+                <a href="@Model.Facebook" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </li>
+            <li>
+                <a href="@Model.Twitter" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li>
+                <a href="@Model.Instagram" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </li>
+            <li>
+                <a href="@Model.Pinterest" target="_blank">
+                    <i class="fab fa-pinterest"></i>
+                </a>
+            </li>
+            <li>
+                <a href="@Model.LinkedIn" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+﻿@model Final.Models.Entity.HomeInfo
+
+@ViewBag.Image
+<div class="first-carousel">
+    <div class="owl-carousel owl-theme">
+
+        @foreach (var vusal in ViewBag.Vusal)
+        {
+            if (vusal.HomeInfoId == Model.Id)
+            {
+                <div class="item">
+                    <img src="@(string.IsNullOrWhiteSpace(vusal.Photo) ? "" : Href("~/Template/Media/" + vusal.Photo))" style="height:400px !important" id="main">
+                    @if (Model.SaleTypeId == 1)
+                    {
+                        <div class="d-flex align-items-start">
+                            <span class="for-sale"> @Model.SaleType.Name</span>
+                        </div>
+                    }
+                    else if (Model.SaleTypeId == 2)
+                    {
+                        <div class="d-flex align-items-start">
+                            <span class="for-rent"> @Model.SaleType.Name</span>
+                        </div>
+                    }
+                </div>
+            }
+        }
+    </div>
+</div>
+<div class="second-carousel">
+    <div class="owl-carousel owl-theme">
+        @foreach (var vusal in ViewBag.Vusal)
+        {
+            if (vusal.HomeInfoId == Model.Id)
+            {
+                <div class="item">
+                    <img src="@(string.IsNullOrWhiteSpace(vusal.Photo) ? "" : Href("~/Template/Media/" + vusal.Photo))" id="photo">
+                </div>
+            }
+        }
+    </div>
+</div>
+
+
+<script>
+    $(".second-carousel").on('click', '.item img', function () {
+        console.log($(this).attr('src'));
+        var i = $(this).attr('src');
+        $('.first-carousel #main').attr("src", i);
+    })
+</script>
+

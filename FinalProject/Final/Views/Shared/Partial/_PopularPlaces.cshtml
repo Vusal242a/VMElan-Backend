@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Final.Models.Entity.City>
+@{var db = new Final.Models.VMElanDbContext();}
+<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+    @for (int i = 1; i < Model.Count(); i++)
+    {
+        if (i < 4)
+        {
+            if (i == 1)
+            {
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center popular-places-left-top">
+                    <div class="popular-places-main">
+                            <div class="popular-places-img">
+                                @{
+                                    var find = db.Cities.Where(w => w.DeletedDate == null && w.Id == i).FirstOrDefault();
+                                    var findImages = find.Image;
+                                }
+                                    <img src="~/Template/Media/@findImages">
+                                <div class="overlay"></div>
+                            </div>
+                            <div class="popular-info">
+                                <h3>@find.Name</h3>
+                                <p>118 Properties</p>
+                            </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                if (i == 2)
+                {
+                    <div class="col-md-12 col-lg-12 col-xl-12 d-flex justify-content-between popular-places-left-bottom">
+                        @foreach (var item in Model)
+                        {
+                            if (item != Model.First() && item != Model.Last())
+                            {
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex justify-content-center popular-places-left-bottom2">
+                                        <div class="popular-places-main">
+                                            <div class="popular-places-img">
+                                                <img src="@(string.IsNullOrWhiteSpace(item.Image)?"":Href("~/Template/Media/"+item.Image))" />
+                                            </div>
+                                            <div class="popular-info">
+                                                <h3>@item.Name</h3>
+                                                <p>50 Properties</p>
+                                            </div>
+                                        </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                }
+
+            }
+        }
+    }
+</div>
+@foreach (var item in Model)
+{
+    if (item == Model.Last())
+    {
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="d-flex justify-content-center  popular-places-right">
+                <div class="popular-places-main">
+                        <div class="popular-places-img">
+                                <img src="@(string.IsNullOrWhiteSpace(item.Image)?"":Href("~/Template/Media/"+item.Image))" />
+                        </div>
+                        <div class="popular-info">
+                            <h3>@item.Name</h3>
+                            <p>112 Properties</p>
+                        </div>
+                </div>
+            </div>
+        </div>
+    }
+}

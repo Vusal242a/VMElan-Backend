@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" href="~/Template/img/favicon (1).ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Template/css/style.css">
+    <link rel="stylesheet" href="~/Template/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="~/Template/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://kit.fontawesome.com/678d81278a.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab&display=swap" rel="stylesheet">
+</head>
+
+<body>
+        <section class="container-second">
+            <header>
+                <!-- class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"> -->
+                <div class="container">
+                    <div class="row d-flex justify-content-around align-items-center head-top">
+                        @Html.Action("TopNav", "Main")
+                    </div>
+                    <nav class="navbar navbar-expand-sm d-flex justify-content-between sticky-top">
+                        @Html.Action("LogoPart", "Main")
+                        <div class="nav-switch">
+                            <i class="fas fa-bars"></i>
+                        </div>
+                        <div class="nav-top d-flex justify-content-end">
+                            <ul class="nav-ul navbar-nav sibling-fade d-flex justify-content-end">
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index","Home")" class="nav-link">Home Page</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("FeaturedListing","Home")" class="nav-link">Featured Listing</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("AboutUs","Home")" class="nav-link">About Us</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("ContactUs","Home")" class="nav-link">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <div class="row d-flex justify-content-center">
+                        <div class="header-middle">
+                            <h2>@ViewBag.Name</h2>
+                        </div>
+                    </div>
+                </div>
+
+            </header>
+        </section>
+        <nav aria-label="breadcrumb" class="breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item passiv"><a href="@Url.Action("Index","Home")"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">@ViewBag.Name</li>
+                </ol>
+            </div>
+        </nav>
+        @RenderBody()
+        <footer class="footer font-small mdb-color pt-4 mt-5" style="background-image: url('../../Template/img/footer-bg.jpg')">
+            <div class="container">
+                <div class="row">
+                    @Html.Action("FooterInfo", "Main")
+                    <div class="popular-ft col-lg-3 col-md-6 mt-5">
+                        <h5 class="fw-title">POPULAR PLACES</h5>
+                        @Html.Action("FooterCity", "Main")
+                    </div>
+                    <div class="col-lg-3 col-md-6 mt-5">
+                        <div class="news-ft">
+                            <h5 class="fw-title">NEWSLETTER</h5>
+                            <p>Subscribe your email to get the latest news and new offer also discount</p>
+                            <form class="news-ft-form">
+                                <input type="text" placeholder="Email address">
+                                <button><i class="fas fa-paper-plane"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="bottom-ft col-12 col-lg-12 col-md-12 co-sm-12 col-xl-12 justify-content-between mt-5">
+                        <div class="row mt-5">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                <div class="copyright">
+                                    <p>
+                                        2019 All rights reserved <i class="fa fa-heart-o" aria-hidden="true"></i>Vusal
+                                        Mahmudlu</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                <div class="nav-ft">
+                                    <ul class="nav-ft-ul">
+                                        <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                                        <li><a href="@Url.Action("FeaturedListing","Home")">Featured Listing</a></li>
+                                        <li><a href="@Url.Action("AboutUs","Home")">About us</a></li>
+                                        <li><a href="@Url.Action("ContactUs","Home")">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="~/Template/js/main.js"></script>
+    @RenderSection("script" , required: false)
+</body>
+
+</html>

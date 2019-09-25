@@ -1,0 +1,46 @@
+﻿@model Final.Models.Entity.SiteInfo
+
+<div class="first-ft col-lg-3 col-md-6 mt-5">
+    @Html.Action("LogoPart", "Main")
+    <p>
+        @Model.Description
+    </p>
+    <div class="footer-social">
+        <ul class="d-flex flex-row justify-content-between">
+            <li>
+                <a href="@Model.Facebook" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </li>
+            <li>
+                <a href="@Model.Twitter" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li>
+                <a href="@Model.Instagram" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </li>
+            <li>
+                <a href="@Model.Pinterest" target="_blank">
+                    <i class="fab fa-pinterest"></i>
+                </a>
+            </li>
+            <li>
+                <a href="@Model.LinkedIn" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="col-lg-3 col-md-6 mt-5">
+    <div class="contact-ft">
+        <h5 class="fw-title">CONTACT US</h5>
+        <p><i class="fa fa-map-marker"></i>@Model.Location</p>
+        <p><i class="fa fa-phone"></i>@Model.Phone</p>
+        <p><i class="fa fa-envelope"></i>@Model.Email</p>
+        <p><i class="far fa-clock" aria-hidden="true"></i>@Model.WorkTime</p>
+    </div>
+</div>

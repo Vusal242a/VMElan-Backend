@@ -1,0 +1,21 @@
+﻿@model Final.Models.Entity.HomeInfo
+
+@foreach (var vusal in ViewBag.Plan)
+{
+    if (vusal.HomeInfoId == Model.Id)
+    {
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#collapse_@vusal.Id">
+                    PLAN IMAGE
+                    <i class="fa fa-angle-down"></i>
+                </a>
+            </div>
+            <div id="collapse_@vusal.Id" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                    <img src="@(string.IsNullOrWhiteSpace(vusal.Photo) ? "" : Href("~/Template/Media/" + vusal.Photo))">
+                </div>
+            </div>
+        </div>
+    }
+}

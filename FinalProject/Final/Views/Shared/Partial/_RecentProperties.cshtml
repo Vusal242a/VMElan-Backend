@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Final.Models.Entity.HomeInfo>
+
+@foreach (var item in Model)
+{
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 houses">
+        <a href="@Url.Action("SingleListing","Home", routeValues: new { id = item.Id })" id="photo-link">
+            <div class="houses-main">
+                <div class="houses-main-img">
+                    <img src="@(string.IsNullOrWhiteSpace(item.BackgroundImage)?"":Href("~/Template/Media/"+item.BackgroundImage))">
+                </div>
+                @if (item.SaleTypeId == 1)
+                {
+                    <div class="d-flex align-items-start">
+                        <span class="for-sale"> @item.SaleType.Name</span>
+                    </div>
+                }
+                else if (item.SaleTypeId == 2)
+                {
+                    <div class="d-flex align-items-start">
+                        <span class="for-rent"> @item.SaleType.Name</span>
+                    </div>
+                }
+                <div class="d-flex justify-content-around house-info">
+                    <div class="sale-info">
+                        <h5>@item.Name</h5>
+                        <p>
+                            <i class="fa fa-map-marker"></i> @item.City.Name
+                        </p>
+                    </div>
+                    <div class="price">$@item.Price</div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+}

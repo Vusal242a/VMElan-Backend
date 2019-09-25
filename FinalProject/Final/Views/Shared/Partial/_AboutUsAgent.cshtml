@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Final.Models.Entity.Agents>
+
+@foreach (var item in Model)
+{
+    <div class="col-12 col-sm-12 col-md-6 col-lg-3 our-agents-list">
+        <div class="our-agents-list-img">
+            <img src="@(string.IsNullOrWhiteSpace(item.Image)?"":Href("~/Template/Media/"+item.Image))">
+            <div class="overlay">
+                <div class="our-agents-list-social-info">
+                    <a href="@item.FacebookLink" target="_blank"><i class="@item.FacebookLogo"></i></a>
+                    <a href="@item.InstagramLink" target="_blank"><i class="@item.InstagramLogo"></i></a>
+                    <a href="@item.TwitterLink" target="_blank"><i class="@item.TwitterLogo"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="our-agents-list-name">
+            <h5>@item.Name</h5>
+            <span>@item.Vacation</span>
+            <div class="our-agents-list-contact">
+                <p><i class="fa fa-phone"></i>@item.Phone</p>
+                <p><i class="fa fa-envelope"></i>@item.Email</p>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Final.Models.Entity.Agents>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Ad1000/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <h2>Agents</h2>
+        <div class="col-12">
+            <a class="btn btn-info" style="margin:5px;" href="@Url.Action("Create","Agents")"> Add Agent</a>
+            <table class="table table-hover">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Image)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Phone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img src="@(string.IsNullOrWhiteSpace(item.Image)?"":Href("~/Template/Media/"+item.Image))" style="width:400px;height:300px" id="news-image" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            <a class="btn btn-success" href="@Url.Action("Edit","Agents",  new { id = item.Id })"> <i class="fas fa-pen"></i></a>
+                            <a class="btn btn-info" href="@Url.Action("Details","Agents",  new { id = item.Id })"> <i class="fas fa-info-circle"></i></a>
+                            <a class="btn btn-danger" href="@Url.Action("Delete","Agents",  new { id = item.Id })"> <i class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+
+
+    </div>
+</div>
+

@@ -1,0 +1,103 @@
+﻿@model Final.Models.Entity.SiteInfo
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Ad1000/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>Site Info Details</h2>
+
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    <img src="@(string.IsNullOrWhiteSpace(Model.Logo)?"":Href("~/Template/Media/"+Model.Logo))" style="width:400px;height:300px" id="news-image" />
+                </dt>
+                <dd></dd>
+
+                <dt>
+                    <img src="@(string.IsNullOrWhiteSpace(Model.Image)?"":Href("~/Template/Media/"+Model.Image))" style="width:400px;height:300px" id="news-image2" />
+                </dt>
+                <dd></dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Phone)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Location)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Location)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.WorkTime)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.WorkTime)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Facebook)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Facebook)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Twitter)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Twitter)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Instagram)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Instagram)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.LinkedIn)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.LinkedIn)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Pinterest)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Pinterest)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.OurQualityText)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.OurQualityText)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.AboutUsText)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.AboutUsText)
+                </dd>
+            </dl>
+        </div>
+        <p>
+            <a class="btn btn-success" style="margin:5px;" href="@Url.Action("Edit","SiteInfoes" , new { id = Model.Id })"> Edit</a>
+            <a class="btn btn-primary" style="margin:5px;" href="@Url.Action("Index","SiteInfoes")"> Back to Site Info</a>
+        </p>
+    </div>
+</div>

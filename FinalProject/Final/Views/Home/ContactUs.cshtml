@@ -1,0 +1,60 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="google-map">
+    <div class="container">
+        <div class="row">
+            <div style="width: 100%">
+                <iframe width="100%" height="500px"
+                        src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;coord=40.377340, 49.854583&amp;q=Baki%20Azerbaijan+(VMElanlar.az)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
+                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                    <a href="https://www.maps.ie/map-my-route/">Draw map route</a>
+                </iframe>
+            </div>
+            <div class="map-footer d-lg-flex justify-content-between">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                    <p><i class="fa fa-map-marker"></i>Baki.Azerbaijan</p>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                    <p><i class="fa fa-envelope"></i>Vusalim@code.edu.az</p>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                    <p><i class="fa fa-phone"></i>(+994) 50 484 3471</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="contact-email">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                <div class="contact-email-img">
+                    <img src="~/Template/img/contact.jpg">
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                <div class="contact-email-title col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <h3>Get in touch</h3>
+                    <p>Browse houses and flats for sale and to rent in your area</p>
+                </div>
+                <form action="@Url.Action("ContactUsSubmit","Home")" class="contact-email-form col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="text" name="Name" placeholder="Your name">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" name="Email" placeholder="Your email">
+                        </div>
+                        <div class="col-md-12">
+                            <textarea name="Message" placeholder="Your message"></textarea>
+                            <button class="site-btn" type="submit">SEND NOW</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

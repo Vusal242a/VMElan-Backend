@@ -1,0 +1,140 @@
+﻿@model IEnumerable<Final.Models.Entity.SiteInfo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Ad1000/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>Site Info</h2>
+        <a class="btn btn-info" style="margin:5px;" href="@Url.Action("Create","SiteInfoes")"> Add Site Info</a>
+        <div class="table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl">
+            <table class="table table-hover">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Logo)
+                        </th>
+                        <td>
+                            <img src="@(string.IsNullOrWhiteSpace(item.Logo)?"":Href("~/Template/Media/"+item.Logo))" style="width:400px;height:300px" id="news-image" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Image)
+                        </th>
+                        <td>
+                            <img src="@(string.IsNullOrWhiteSpace(item.Image)?"":Href("~/Template/Media/"+item.Image))" style="width:400px;height:300px" id="news-image2" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Phone)
+                        </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Location)
+                        </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Location)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.WorkTime)
+                        </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.WorkTime)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Facebook)
+                        </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Facebook)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Twitter)
+                        </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Twitter)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Instagram)
+                        </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Instagram)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LinkedIn)
+                        </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LinkedIn)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Pinterest)
+                        </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Pinterest)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.AboutUsText)
+                        </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AboutUsText)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.OurQualityText)
+                        </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OurQualityText)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td>
+                            <a class="btn btn-success" href="@Url.Action("Edit","SiteInfoes",  new { id = item.Id })"> <i class="fas fa-pen"></i></a>
+                            <a class="btn btn-info" href="@Url.Action("Details","SiteInfoes",  new { id = item.Id })"> <i class="fas fa-info-circle"></i></a>
+                            <a class="btn btn-danger" href="@Url.Action("Delete","SiteInfoes",  new { id = item.Id })"> <i class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Final.Models.Entity.HomeInfo>
+
+@foreach (var item in Model)
+{
+    <div class="col-lg-4 col-md-4 featuredHouse">
+        <div class="featured-image">
+            <a href="@Url.Action("SingleListing","Home", routeValues: new { id = item.Id })" id="photo-link">
+                <img src="@(string.IsNullOrWhiteSpace(item.BackgroundImage)?"":Href("~/Template/Media/"+item.BackgroundImage))">
+                @if (item.SaleTypeId == 1)
+                {
+                    <div class="d-flex align-items-start">
+                        <span class="for-sale"> @item.SaleType.Name</span>
+                    </div>
+                }
+                else if (item.SaleTypeId == 2)
+                {
+                    <div class="d-flex align-items-start">
+                        <span class="for-rent"> @item.SaleType.Name</span>
+                    </div>
+                }
+            </a>
+
+        </div>
+        <div class="text-center featured-title">
+            <h5>@item.Name</h5>
+            <p>
+                <i class="fa fa-map-marker"></i> @item.City.Name
+            </p>
+        </div>
+        <div class="featured-info">
+            <div class="d-flex flex-column featured-house">
+                <div class="d-flex justify-content-around featured-house-info">
+                    <div>
+                        <p>
+                            <i class="fa fa-th-large"></i> @item.Square Square foot
+                        </p>
+                        <p>
+                            <i class="fa fa-bed"></i> @item.Bedroom Bedrooms
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            <i class="fa fa-car"></i> @item.Garage Garages
+                        </p>
+                        <p>
+                            <i class="fa fa-bath"></i> @item.Bathroom Bathrooms
+                        </p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-around featured-house-info-login">
+                    <div>
+                        <p>
+                            <i class="fa fa-user"></i> @item.Agents.Name
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            <i class="far fa-clock"></i> 1 days ago
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="room-price">$@item.Price</a>
+    </div>
+}

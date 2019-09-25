@@ -1,0 +1,105 @@
+﻿@model IEnumerable<Final.Models.Entity.HomeInfo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Ad1000/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>Home Info</h2>
+
+        <a class="btn btn-info" style="margin:5px;" href="@Url.Action("Create","HomeInfoes")"> Add Home Info</a>
+
+        @foreach (var item in Model)
+        {<table class="table table-hover">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Agents.Name)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Agents.Name)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.City.Name)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City.Name)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Home Photos
+                    </th>
+                    <td>
+                        @foreach (var img in ViewBag.HomeImage)
+                        {
+                            if (item.Id == img.HomeInfoId)
+                            {
+                                <img src="@(string.IsNullOrWhiteSpace(img.Photo)?"":Href("~/Template/Media/"+img.Photo))" style="width:100px;height:100px" id="news-image" />
+                            }
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Plan Photos
+                    </th>
+                    <td>
+                        @foreach (var img in ViewBag.PlanImage)
+                        {
+                            if (item.Id == img.HomeInfoId)
+                            {
+                                <img src="@(string.IsNullOrWhiteSpace(img.Photo)?"":Href("~/Template/Media/"+img.Photo))" style="width:100px;height:100px" id="news-image" />
+                            }
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Category.Name)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.Name)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Price)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>
+                        <a class="btn btn-success" href="@Url.Action("Edit","HomeInfoes",  new { id = item.Id })"> <i class="fas fa-pen"></i></a>
+                        <a class="btn btn-info" href="@Url.Action("Details","HomeInfoes",  new { id = item.Id })"> <i class="fas fa-info-circle"></i></a>
+                        <a class="btn btn-danger" href="@Url.Action("Delete","HomeInfoes",  new { id = item.Id })"> <i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            </table>
+            <hr style="    background-color: #00c292;padding: 10px;margin: 10px;height: 9px;border-radius: 10px;" />
+        }
+    </div>
+</div>
+
